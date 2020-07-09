@@ -77,7 +77,11 @@
 							if(url != null){
 								window.location.replace(url);
 							}
+							
 							//
+						}
+						else{
+							alert("用户名或密码错误，请重新输入...")
 						}
 					},
 					error:function(){
