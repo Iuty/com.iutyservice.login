@@ -36,6 +36,7 @@
 
 <script>
 	import $ from 'jquery'
+	import 'jquery.cookie'
 	function getUrlParam(name) {
 	 var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
 	 var r = window.location.search.substr(1).match(reg); //匹配目标参数
@@ -74,8 +75,13 @@
 						if(rtn.success){
 							//location.reload();
 							var url = getUrlParam('url')
+							
+							localStorage.setItem("SessionId",$.cookie("session"))
 							if(url != null){
 								window.location.replace(url);
+							}
+							else{
+								alert("登录成功，无跳转页面")
 							}
 							
 							//
